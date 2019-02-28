@@ -7,7 +7,7 @@ namespace P2_FixAnAppDotNetCode.Models.Repositories
 {
     public interface IProductRepository
     {
-        Product[] GetAllProducts();
+        List<Product> GetAllProducts(); // Set to list
 
         void UpdateProductStocks(int productId, int quantityToRemove);
     }
