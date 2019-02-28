@@ -23,10 +23,24 @@ namespace P2_FixAnAppDotNetCode.Models.Services
         /// </summary>
         public string SetCulture(string language)
         {
-            string culture = "";
-            // TODO complete the code 
-            // Default language is "en", french is "fr" and spanish is "es".
+            string culture;
             
+            // Default language is "en", french is "fr" and spanish is "es".
+            // Check language being passed in and set to abbreviated string
+            if (language == "French")
+            {
+                culture = "fr";
+            }
+            else if (language == "Spanish")
+            {
+                culture = "es";
+            }
+            else
+            {
+                culture = "en"; // Set as default
+            }
+
+
             return culture;
         }
 
