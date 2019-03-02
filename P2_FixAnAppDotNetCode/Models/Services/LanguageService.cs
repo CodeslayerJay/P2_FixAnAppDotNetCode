@@ -26,7 +26,7 @@ namespace P2_FixAnAppDotNetCode.Models.Services
             string culture;
             
             // Default language is "en", french is "fr" and spanish is "es".
-            // Check language being passed in and set to abbreviated string
+            // Set language to abbreviated version.
             if (language == "French")
             {
                 culture = "fr";
@@ -37,7 +37,7 @@ namespace P2_FixAnAppDotNetCode.Models.Services
             }
             else
             {
-                culture = "en"; // Set as default
+                culture = "en"; // Set default
             }
 
 
