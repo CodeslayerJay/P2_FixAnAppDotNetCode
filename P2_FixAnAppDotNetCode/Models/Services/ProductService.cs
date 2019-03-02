@@ -20,6 +20,7 @@ namespace P2_FixAnAppDotNetCode.Models.Services
 
         /// <summary>
         /// Get all product from the inventory
+        /// Return type should be a List<T>
         /// </summary>
         public List<Product> GetAllProducts()
         {
