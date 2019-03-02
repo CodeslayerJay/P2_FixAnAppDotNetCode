@@ -20,6 +20,7 @@ namespace P2_FixAnAppDotNetCode.Controllers
 
         public IActionResult Index()
         {
+            // Store products in a list and send to view
             List<Product> products = _productService.GetAllProducts();
             return View(products);
         }
