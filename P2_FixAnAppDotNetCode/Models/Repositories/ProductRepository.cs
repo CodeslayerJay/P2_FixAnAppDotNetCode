@@ -45,9 +45,9 @@ namespace P2_FixAnAppDotNetCode.Models.Repositories
         {
             // Create local object product that stores a LINQ query from
             // products collection/repository.
-            // LINQ -> locate item that matches id, return a single item or default
-            Product product = products.Where(p => p.Id == id).SingleOrDefault();
-            return product; // return to caller
+            // LINQ -> locate item that matches id, return first item
+            Product product = products.Where(p => p.Id == id).First();
+            return product; // return object
 
         }
 
