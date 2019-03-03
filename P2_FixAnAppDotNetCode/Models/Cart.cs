@@ -93,10 +93,11 @@ namespace P2_FixAnAppDotNetCode.Models
         /// </summary>
         public Product FindProductInCartLines(int productId)
         {
-            // TODO implement the method
-            
-            
-            return null;
+            // LINQ Query Find Product by ID
+            CartLine cartLine = GetCartLineList().Find(p => p.Product.Id == productId);
+
+            // Return Product
+            return cartLine.Product;
         }
 
         /// <summary>
