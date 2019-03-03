@@ -24,7 +24,7 @@ namespace P2_FixAnAppDotNetCode.Models.Services
         /// </summary>
         public List<Product> GetAllProducts()
         {
-        
+            
             return _productRepository.GetAllProducts();
         }
 
