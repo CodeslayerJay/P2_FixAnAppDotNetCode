@@ -99,19 +99,16 @@ namespace P2_FixAnAppDotNetCode.Models
         {
             // Initialize properties
             double totalCartQuantity = 0;
-            double totalCartValue = 0;
-
+            
             // Loop through each item in collection
             foreach (var item in _lines)
             {
                 // Add product quantity to total cart quantity
                 totalCartQuantity = totalCartQuantity + item.Quantity; 
-
-                // Multiply quantity by price then add to totalCartValue
-                totalCartValue = (item.Quantity * item.Product.Price) + totalCartValue; 
+                
             }
-            // Calculate average of totalCartValue and totalCartQuantity
-            return totalCartValue / totalCartQuantity;
+            // Calculate average of GetTotalValue() and totalCartQuantity
+            return GetTotalValue() / totalCartQuantity;
         }
 
         /// <summary>
