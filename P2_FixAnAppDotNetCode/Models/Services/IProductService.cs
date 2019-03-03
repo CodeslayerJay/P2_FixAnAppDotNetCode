@@ -8,7 +8,7 @@ namespace P2_FixAnAppDotNetCode.Models.Services
     public interface IProductService
     {
         List<Product> GetAllProducts(); // Set to list
-        Product GetProductById(int id);
+        Product GetProductById(int id); // added member definition
         void UpdateProductQuantities(Cart cart);
     }
 }

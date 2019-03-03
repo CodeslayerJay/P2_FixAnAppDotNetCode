@@ -29,11 +29,12 @@ namespace P2_FixAnAppDotNetCode.Models.Services
 
         /// <summary>
         /// Get a product form the inventory by its id
+        /// Implement GetProductById from IProductService Interface
         /// </summary>
         public Product GetProductById(int id)
         {
-            // TODO implement the method
-            return null;
+            // Get product from collection by product Id
+            return _productRepository.GetProductById(id);
         }
 
         /// <summary>

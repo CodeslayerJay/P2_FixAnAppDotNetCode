@@ -39,6 +39,19 @@ namespace P2_FixAnAppDotNetCode.Models.Repositories
         }
 
         /// <summary>
+        /// Get product by Id from the inventory
+        /// </summary>
+        public Product GetProductById(int id)
+        {
+            // Create local object product that stores a LINQ query from
+            // products collection/repository.
+            // LINQ -> locate item that matches id, return a single item or default
+            Product product = products.Where(p => p.Id == id).SingleOrDefault();
+            return product; // return to caller
+
+        }
+
+        /// <summary>
         /// Update the stock of a product in the inventory by its id
         /// </summary>
         public void UpdateProductStocks(int productId, int quantityToRemove)
