@@ -25,12 +25,11 @@ namespace P2_FixAnAppDotNetCode.Models
         private List<CartLine> GetCartLineList()
         {
 
+            // Commented out:
             // Every time method is called a "new" empty List<CartLine>() is returned
-            //return new List<CartLine>();
+            // return new List<CartLine>();
 
-            // We want to persist the collection so we create a class member and initialize it to
-            // the property _lines;
-            
+            // Instead return the class property _lines
             return _lines;
         }
 
@@ -39,26 +38,20 @@ namespace P2_FixAnAppDotNetCode.Models
         /// </summary>
         public void AddItem(Product product, int quantity)
         {
-            // Get product from _lines collection
+            // Find CartLine from _lines collection that matches Product.Id
             CartLine line = _lines.Find(l => l.Product.Id == product.Id);
 
-            // If: line already has a product -> update the quantity
-            // Else: Create a new item and store in the collection.
+            // If line has product already then update the quantity
             if (line != null)
             {
                 line.Quantity = line.Quantity + 1;
             }
             else
             {
-                // Create an OrderLineID based on the current count of _lines
-                //int OrderId = 0;
-                //int count = _lines.Count;
-                //OrderId = count + 1;
-
-                // Create new CartLine object passing in our arguments
+                // Create a new item and store in the collection.
                 CartLine cartLine = new CartLine() {  Product = product, Quantity = quantity };
 
-                // Use LINQ to Add to list
+                // Add to the _lines collection
                 _lines.Add(cartLine);
             }
             
@@ -75,7 +68,7 @@ namespace P2_FixAnAppDotNetCode.Models
         /// </summary>
         public double GetTotalValue()
         {
-            // Initialize properties
+            // Initialize
             double totalCartQuantity = 0;
             double totalCartValue = 0;
 
@@ -88,7 +81,8 @@ namespace P2_FixAnAppDotNetCode.Models
                 // Multiply quantity by price then add to totalCartValue
                 totalCartValue = (item.Quantity * item.Product.Price) + totalCartValue;
             }
-            // Calculate average of totalCartValue and totalCartQuantity
+            
+            // Return total value
             return totalCartValue;
         }
 
@@ -97,7 +91,7 @@ namespace P2_FixAnAppDotNetCode.Models
         /// </summary>
         public double GetAverageValue()
         {
-            // Initialize properties
+            // Initialize
             double totalCartQuantity = 0;
             double totalCartValue = 0;
 
@@ -119,7 +113,7 @@ namespace P2_FixAnAppDotNetCode.Models
         /// </summary>
         public Product FindProductInCartLines(int productId)
         {
-            // LINQ Query Find Product by ID
+            // Find Product in _lines by ID
             CartLine cartLine = GetCartLineList().Find(p => p.Product.Id == productId);
 
             // Return Product
