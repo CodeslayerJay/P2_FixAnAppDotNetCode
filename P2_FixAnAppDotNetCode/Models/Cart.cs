@@ -29,8 +29,8 @@ namespace P2_FixAnAppDotNetCode.Models
             //return new List<CartLine>();
 
             // We want to persist the collection so we create a class member and initialize it to
-            // new empty List<CartLine>();
-            // Now when method is called we return the member collection
+            // the property _lines;
+            
             return _lines;
         }
 
@@ -51,12 +51,12 @@ namespace P2_FixAnAppDotNetCode.Models
             else
             {
                 // Create an OrderLineID based on the current count of _lines
-                int OrderId = 0;
-                int count = _lines.Count;
-                OrderId = count + 1;
+                //int OrderId = 0;
+                //int count = _lines.Count;
+                //OrderId = count + 1;
 
                 // Create new CartLine object passing in our arguments
-                CartLine cartLine = new CartLine() { OrderLineID = OrderId, Product = product, Quantity = quantity };
+                CartLine cartLine = new CartLine() {  Product = product, Quantity = quantity };
 
                 // Use LINQ to Add to list
                 _lines.Add(cartLine);
