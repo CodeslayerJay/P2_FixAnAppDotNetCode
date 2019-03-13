@@ -25,11 +25,7 @@ namespace P2_FixAnAppDotNetCode.Models
         private List<CartLine> GetCartLineList()
         {
 
-            // Commented out:
-            // Every time method is called a "new" empty List<CartLine>() is returned
-            // return new List<CartLine>();
-
-            // Instead return the class property _lines
+            // Return CartLine collection _lines
             return _lines;
         }
 
@@ -40,11 +36,11 @@ namespace P2_FixAnAppDotNetCode.Models
         {
             // Find CartLine from _lines collection that matches Product.Id
             CartLine line = _lines.Find(l => l.Product.Id == product.Id);
-
+            
             // If line has product already then update the quantity
             if (line != null)
             {
-                line.Quantity = line.Quantity + 1;
+                line.Quantity += quantity;
             }
             else
             {
@@ -53,6 +49,7 @@ namespace P2_FixAnAppDotNetCode.Models
 
                 // Add to the _lines collection
                 _lines.Add(cartLine);
+
             }
             
         }

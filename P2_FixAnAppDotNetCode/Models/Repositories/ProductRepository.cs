@@ -43,11 +43,9 @@ namespace P2_FixAnAppDotNetCode.Models.Repositories
         /// </summary>
         public Product GetProductById(int id)
         {
-            // Create local object product that stores a LINQ query from
-            // products collection/repository.
-            // LINQ -> locate item that matches id, return first item
+            
             Product product = products.Where(p => p.Id == id).First();
-            return product; // return object
+            return product;
 
         }
 

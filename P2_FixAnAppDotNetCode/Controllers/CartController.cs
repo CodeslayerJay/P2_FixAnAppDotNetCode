@@ -29,6 +29,7 @@ namespace P2_FixAnAppDotNetCode.Controllers
             if (product != null)
             {
                 cart.AddItem(product, 1);
+                
                 return RedirectToAction("Index");
             }
             else
