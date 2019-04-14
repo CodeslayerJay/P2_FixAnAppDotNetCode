@@ -15,7 +15,7 @@ namespace P2_FixAnAppDotNetCode.Models
         [Required(ErrorMessage = "ErrorMissingName")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "ErrorMissingAdress")]
+        [Required(ErrorMessage = "ErrorMissingAddress")]
         public string Address { get; set; }
 
         [Required(ErrorMessage = "ErrorMissingCity")]
