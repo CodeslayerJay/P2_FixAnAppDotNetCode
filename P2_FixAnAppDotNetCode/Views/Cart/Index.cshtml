@@ -51,5 +51,10 @@
 </table>
 <div class="text-center">
     <a class="btn btn-primary" asp-action="Index" asp-controller="Product">@Localizer["ContinueShopping"]</a>
-    <a class="btn btn-primary" asp-action="Index" asp-controller="Order">@Localizer["Checkout"]</a>
+
+    @if (Model.Lines.Any())
+    {
+        <a class="btn btn-primary" asp-action="Index" asp-controller="Order">@Localizer["Checkout"]</a>
+    }
+    
 </div>
