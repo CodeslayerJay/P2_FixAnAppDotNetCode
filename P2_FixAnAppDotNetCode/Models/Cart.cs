@@ -34,22 +34,25 @@ namespace P2_FixAnAppDotNetCode.Models
         /// </summary>
         public void AddItem(Product product, int quantity)
         {
-            // Find CartLine from _lines collection that matches Product.Id
-            var line = _lines.Find(l => l.Product.Id == product.Id);
-            
-            // If line has product already then update the quantity
-            if (line != null)
+            if( quantity > 0 && quantity < 10)
             {
-                line.Quantity += quantity;
-            }
-            else
-            {
-                // Create a new item and store in the collection.
-                var cartLine = new CartLine() {  Product = product, Quantity = quantity };
+                // Find CartLine from _lines collection that matches Product.Id
+                var line = _lines.Find(l => l.Product.Id == product.Id);
 
-                // Add to the _lines collection
-                _lines.Add(cartLine);
+                // If line has product already then update the quantity
+                if (line != null)
+                {
+                    line.Quantity += quantity;
+                }
+                else
+                {
+                    // Create a new item and store in the collection.
+                    var cartLine = new CartLine() { Product = product, Quantity = quantity };
 
+                    // Add to the _lines collection
+                    _lines.Add(cartLine);
+
+                }
             }
             
         }
