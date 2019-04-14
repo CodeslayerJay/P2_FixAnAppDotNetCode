@@ -34,6 +34,8 @@ namespace P2_FixAnAppDotNetCode.Models
         /// </summary>
         public void AddItem(Product product, int quantity)
         {
+            // Safety net of 10 to prevent unintended adding of large
+            // amounts of quantity
             if( quantity > 0 && quantity < 10)
             {
                 // Find CartLine from _lines collection that matches Product.Id
@@ -42,7 +44,14 @@ namespace P2_FixAnAppDotNetCode.Models
                 // If line has product already then update the quantity
                 if (line != null)
                 {
-                    line.Quantity += quantity;
+                    // Only add additional quantity if there is stock available
+                    // and the current line count isn't greater than
+                    // what stock is available.
+                    if(product.Stock > line.Quantity)
+                    {
+                        line.Quantity += quantity;
+                    }
+                    
                 }
                 else
                 {
