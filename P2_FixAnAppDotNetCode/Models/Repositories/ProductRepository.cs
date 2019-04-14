@@ -8,12 +8,16 @@ namespace P2_FixAnAppDotNetCode.Models.Repositories
     /// </summary>
     public class ProductRepository : IProductRepository
     {
-        private static List<Product> products;
+        private static List<Product> products = new List<Product>();
 
         public ProductRepository()
         {
-            products = new List<Product>();
-            GenerateProductData();
+            if( !products.Any())
+            {
+                GenerateProductData();
+            }
+            //products = new List<Product>();
+            
         }
 
         /// <summary>
