@@ -12,6 +12,7 @@ namespace P2_FixAnAppDotNetCode.Models.Repositories
 
         public ProductRepository()
         {
+            // If products is empty then generate data
             if( !products.Any())
             {
                 GenerateProductData();
