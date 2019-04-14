@@ -40,9 +40,9 @@ namespace P2_FixAnAppDotNetCode.Tests
 
             productService.UpdateProductQuantities(cart);
 
-            Assert.Equal(19, products.Where(p => p.Id == 1).First().Stock);
+            Assert.Equal(9, products.Where(p => p.Id == 1).First().Stock);
             Assert.Equal(28, products.Where(p => p.Id == 3).First().Stock);
-            Assert.Equal(37, products.Where(p => p.Id == 5).First().Stock);
+            Assert.Equal(47, products.Where(p => p.Id == 5).First().Stock);
         }
 
         [Fact]
