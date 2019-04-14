@@ -15,7 +15,7 @@ namespace P2_FixAnAppDotNetCode.Models
         /// </summary>
         public IEnumerable<CartLine> Lines => GetCartLineList();
 
-        // Create a private empty list
+        // Set private field and initialize it
         private List<CartLine> _lines = new List<CartLine>();
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace P2_FixAnAppDotNetCode.Models
         public void AddItem(Product product, int quantity)
         {
             // Find CartLine from _lines collection that matches Product.Id
-            CartLine line = _lines.Find(l => l.Product.Id == product.Id);
+            var line = _lines.Find(l => l.Product.Id == product.Id);
             
             // If line has product already then update the quantity
             if (line != null)
@@ -45,7 +45,7 @@ namespace P2_FixAnAppDotNetCode.Models
             else
             {
                 // Create a new item and store in the collection.
-                CartLine cartLine = new CartLine() {  Product = product, Quantity = quantity };
+                var cartLine = new CartLine() {  Product = product, Quantity = quantity };
 
                 // Add to the _lines collection
                 _lines.Add(cartLine);
@@ -78,9 +78,10 @@ namespace P2_FixAnAppDotNetCode.Models
                 // Multiply quantity by price then add to totalCartValue
                 totalCartValue = (item.Quantity * item.Product.Price) + totalCartValue;
             }
-            
+
             // Return total value
             return totalCartValue;
+
         }
 
         /// <summary>
@@ -96,13 +97,15 @@ namespace P2_FixAnAppDotNetCode.Models
             foreach (var item in _lines)
             {
                 // Add product quantity to total cart quantity
-                totalCartQuantity = totalCartQuantity + item.Quantity; 
+                totalCartQuantity = totalCartQuantity + item.Quantity;
 
                 // Multiply quantity by price then add to totalCartValue
-                totalCartValue = (item.Quantity * item.Product.Price) + totalCartValue; 
+                totalCartValue = (item.Quantity * item.Product.Price) + totalCartValue;
             }
             // Calculate average of totalCartValue and totalCartQuantity
             return totalCartValue / totalCartQuantity;
+
+
         }
 
         /// <summary>
