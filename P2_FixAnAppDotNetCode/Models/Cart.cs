@@ -135,11 +135,20 @@ namespace P2_FixAnAppDotNetCode.Models
         /// </summary>
         public Product FindProductInCartLines(int productId)
         {
-            // Find Product in _lines by ID
-            CartLine cartLine = GetCartLineList().Find(p => p.Product.Id == productId);
+            // Get the first result or default
+            var line = _lines.FirstOrDefault(c => c.Product.Id == productId);
 
-            // Return Product
-            return cartLine.Product;
+            // Check if the product is null and
+            // return to caller to handle product not being
+            // found
+            if(line.Product == null)
+            {
+                return null;
+            }
+
+            // Return product
+            return line.Product;
+            
         }
 
         /// <summary>
